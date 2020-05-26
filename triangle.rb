@@ -15,8 +15,11 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  a, b, c = [a, b, c].sort
+  raise TriangleError, "All sides must be positive number" if a <= 0
+  raise TriangleError, "Impossible triangle" if ( a + b <= c)
+  [:equilateral,:isosceles,:scalene].fetch([a,b,c].uniq.size - 1)
 end
 
 # Error class used in part 2.  No need to change this code.
-class TriangleError < StandardError
-end
+class TriangleError < StandardError; end

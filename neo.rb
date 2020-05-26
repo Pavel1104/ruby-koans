@@ -285,7 +285,9 @@ module Neo
         print Color.cyan('_'*(bar_width-1-happy_steps))
       end
       print Color.green(']')
-      print " #{pass_count}/#{total_tests}"
+      print " #{pass_count}/#{total_tests} finished: #{Color.red((((pass_count.fdiv total_tests)*100).round 1).to_s<<'%')}"
+      print " last: #{total_tests - pass_count}"
+      # print " #{pass_count}/#{total_tests}"
       puts
     end
 
